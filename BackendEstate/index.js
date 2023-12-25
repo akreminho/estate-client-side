@@ -22,3 +22,13 @@ app.listen(4000,()=>{
 
 app.use("/BackendEstate/user", userRouter);
 app.use("/BackendEstate/auth", authRouter);
+
+app.use((err, req, res, next)=>{
+    const statusCode = err.statusCode ||500;
+    const message = err.message||"Internal Server Error";
+    return res.status(statusCode).json({
+       success: false,
+       statusCode,
+       message, 
+    })
+})
