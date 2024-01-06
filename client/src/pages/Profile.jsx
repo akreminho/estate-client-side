@@ -55,7 +55,7 @@ export default function Profile() {
     <div className="p-3 max-w-lg mx-auto">
       <h1 className="text-3xl font-semi-bold text-center">Profile</h1>
       <form className="flex flex-col gap-4">
-        <input
+        <input ref={fileRef}
           onChange={(e) => setFile(e.target.files[0])}
           type="file"
           hidden
